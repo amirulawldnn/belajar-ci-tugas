@@ -21,13 +21,13 @@ if (session()->getFlashData('success')) {
             echo form_hidden('harga', $item['harga']);
             echo form_hidden('foto', $item['foto']);
             ?>
-            <div class="card">
+            <dihv class="card">
                 <div class="card-body">
                     <img src="<?php echo base_url() . "img/" . $item['foto'] ?>" alt="..." width="300px">
                     <h5 class="card-title"><?php echo $item['nama'] ?><br><?php echo number_to_currency($item['harga'], 'IDR') ?></h5>
                     <button type="submit" class="btn btn-info rounded-pill">Beli</button>
                 </div>
-            </div>
+            </dihv>
             <?= form_close() ?>
         </div>
     <?php endforeach ?>
