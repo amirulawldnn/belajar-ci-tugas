@@ -51,6 +51,8 @@ class Home extends BaseController
     }
 
     $data['product'] = $product;
+    $data['diskon'] = session()->get('diskon_nominal') ?? 0;
+
 
     return view('v_profile', $data);
 } 

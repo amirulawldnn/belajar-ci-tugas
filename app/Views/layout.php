@@ -71,11 +71,18 @@ if (uri_string() != "") {
                     ?>
                         <li class="breadcrumb-item"><?php echo $hlm ?></li>
                     <?php
+                    
                     }
                     ?>
+                    
                 </ol>
+
+                
+
             </nav>
         </div><!-- End Page Title -->
+
+        
 
         <section class="section">
             <div class="row">

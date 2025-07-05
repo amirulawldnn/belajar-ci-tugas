@@ -29,6 +29,12 @@ Proyek ini adalah platform toko online yang dibangun menggunakan [CodeIgniter 4]
   - Login/Register pengguna
   - Manajemen akun
 - UI Responsif dengan NiceAdmin template
+- UI Yang menampilkan Badge Diskon Di Header
+  - Fitur diskon dimana apapun ketika ingin membeli barang otomatis barang sudah terkurang diskon
+  - lalu manajemen data diskon untuk user admin dimana pada saat nambah data diskon admin tidak boleh menambahkan data diskon di tanggal yang sama kemudian pada form inputan edit inputan tanggal dibuat menjadi read only
+  - mengurangi harga produk daat user memasukkan produk kedalam keranjang (menggunakan external library cart)
+  - mengurangi harga produk saat proses menyimpan data detail transaksi ke dalam database
+  - menampilkan data dashboard toko dimana terlampir jumlah item di tabel total harga
 
 ## Persyaratan Sistem
 
@@ -37,6 +43,9 @@ Proyek ini adalah platform toko online yang dibangun menggunakan [CodeIgniter 4]
 - Web server (XAMPP)
 
 ## Instalasi
+
+instalasi composer
+intalasi cart
 
 1. **Clone repository ini**
    ```bash
@@ -72,6 +81,8 @@ Proyek ini adalah platform toko online yang dibangun menggunakan [CodeIgniter 4]
    Buka browser dan akses `http://localhost:8080` untuk melihat aplikasi.
 
 ## Struktur Proyek
+
+- struktur proyek penjualan dibuat untuk membeli barang via online dengan beberapa fitur diman fitur fiturny ad CRUD
 
 Proyek menggunakan struktur MVC CodeIgniter 4:
 

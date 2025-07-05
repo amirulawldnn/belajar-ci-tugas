@@ -31,6 +31,24 @@ class AuthController extends BaseController
                         'isLoggedIn' => TRUE
                     ]);
 
+                    
+                    
+                    $db = \Config\Database::connect();
+$today = date('Y-m-d');
+
+$diskon = $db->table('diskon')
+             ->where('tanggal', $today)
+             ->get()
+             ->getRow();
+     
+if ($diskon) {
+    session()->set('diskon_nominal', $diskon->nominal);
+} else {
+    session()->remove('diskon_nominal');
+}
+
+return redirect()->to(base_url('/'));
+
                     return redirect()->to(base_url('/'));
                 } else {
                     session()->setFlashdata('failed', 'Username & Password Salah');

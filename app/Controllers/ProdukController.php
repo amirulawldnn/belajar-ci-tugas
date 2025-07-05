@@ -112,4 +112,36 @@ class ProdukController extends BaseController
     // output the generated pdf
         $dompdf->stream($filename);
     }
+
+    public function beli()
+{
+    $id     = $this->request->getPost('id');
+    $nama   = $this->request->getPost('nama');
+    $harga  = $this->request->getPost('harga');
+    $foto   = $this->request->getPost('foto');
+
+    // Cek apakah ada diskon dari session
+    $diskon = session()->get('diskon_nominal') ?? 0;
+
+    // Harga setelah diskon
+    $hargaSetelahDiskon = max(0, $harga - $diskon); // Pastikan tidak negatif
+
+    $cart = \Config\Services::cart();
+
+    $cart->insert([
+        'id'      => $id,
+        'qty'     => 1,
+        'price'   => $hargaSetelahDiskon,
+        'name'    => $nama,
+        'options' => [
+            'foto'        => $foto,
+            'harga_asli'  => $harga,
+            'diskon'      => $diskon
+        ]
+    ]);
+
+    return redirect()->to('/keranjang')->with('success', 'Produk berhasil ditambahkan ke keranjang.');
+}
+
+
 }

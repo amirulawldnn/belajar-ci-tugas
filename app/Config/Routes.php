@@ -18,6 +18,7 @@ $routes->group('produk', ['filter' => 'auth'], function ($routes) {
     $routes->post('edit/(:any)', 'ProdukController::edit/$1');
     $routes->get('delete/(:any)', 'ProdukController::delete/$1');
     $routes->get('download', 'ProdukController::download');
+    $routes->post('produk/beli', 'ProdukController::beli');
 });
 
 $routes->group('produkkategori', ['filter' => 'auth'], function ($routes) { 
@@ -47,3 +48,8 @@ $routes->group('keranjang', ['filter' => 'auth'], function ($routes) {
     $routes->get('delete/(:any)', 'TransaksiController::cart_delete/$1');
     $routes->get('clear', 'TransaksiController::cart_clear');
 });
+
+$routes->get('/diskon', 'DiskonController::index');
+$routes->post('diskon/save', 'DiskonController::save');
+$routes->get('diskon/delete/(:num)', 'DiskonController::delete/$1');
+

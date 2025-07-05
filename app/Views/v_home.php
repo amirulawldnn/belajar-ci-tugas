@@ -1,5 +1,13 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
+
+<?php if (session()->has('diskon_nominal')): ?>
+    <div class="alert alert-success text-center p-2" style="background-color: #d4edda;">
+        Hari ini ada diskon <strong><?= number_format(session('diskon_nominal')) ?></strong> per item
+    </div>
+<?php endif; ?>
+
+
 <?php
 if (session()->getFlashData('success')) {
 ?>
@@ -21,13 +29,13 @@ if (session()->getFlashData('success')) {
             echo form_hidden('harga', $item['harga']);
             echo form_hidden('foto', $item['foto']);
             ?>
-            <dihv class="card">
+            <div class="card">
                 <div class="card-body">
                     <img src="<?php echo base_url() . "img/" . $item['foto'] ?>" alt="..." width="300px">
                     <h5 class="card-title"><?php echo $item['nama'] ?><br><?php echo number_to_currency($item['harga'], 'IDR') ?></h5>
                     <button type="submit" class="btn btn-info rounded-pill">Beli</button>
                 </div>
-            </dihv>
+            </div>
             <?= form_close() ?>
         </div>
     <?php endforeach ?>
